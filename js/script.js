@@ -40,6 +40,9 @@ function geraId() {
 
 //criar a função responsável por pontuar e modificar o score
 
+
+//criar a função reset que irá apagar e criar novamente os quadrados via button
+
 function reset() {
     var containers = document.querySelectorAll(".tubo");
 
@@ -50,7 +53,4 @@ function reset() {
     criaBloco();
     // chama a função responsavel por cria os blocos
 }
-
-//criar a função reset que irá apagar e criar novamente os quadrados via button
-
 
