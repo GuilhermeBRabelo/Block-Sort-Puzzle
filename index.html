@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="assets/trevo.png" type="image/x-icon">
     <title>Block Puzzle</title>
 </head>
-<body>
+<body onload="criaBloco()">
 
     <header>
-        <button type="button" id="bttn" onclick="criaBloco()">Reset</button>
+        <button type="button" id="bttn">Reset</button>
 
         <span>score: <span id="contador">1234</span> </span>
 
@@ -31,14 +32,14 @@
         </section>
 
         <section class="tubo">
-            <div class="blockX"></div>
-            <div class="blockTriangulo"></div>
-            <div class="blockCirculo"></div>
-            <div class="blockQuadrado"></div>
+
         </section>
 
         <section id="tubo-vazio">
-
+            <!-- <div class="blockX"></div>
+            <div class="blockTriangulo"></div>
+            <div class="blockCirculo"></div>
+            <div class="blockQuadrado"></div> -->
         </section>
     </main>
 
