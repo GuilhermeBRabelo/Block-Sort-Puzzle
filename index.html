@@ -7,18 +7,37 @@
     <link rel="stylesheet" href="css/style.css">    
     <title>Block Puzzle</title>
 </head>
-<body onload="criaBloco()">
-    
-    <main>
-        <div id="tuboOne" class="tubo"></div>
-        <div id="tuboTwo" class="tubo"></div>
-        <div id="tuboThree" class="tubo"></div>
-        <div id="tuboFour" class="tubo"></div>
+<body>
 
-        <div id="tubo-vazio">
-            
-        </div>
+    <header>
+        <button type="button" id="bttn" onclick="criarBloco">Reset</button>
+
+        <span>score: <span id="contador">1234</span> </span>
+
+        <div id="scoreHistory"></div>
+    </header>
+
+    <main>
+        <section class="tubo">
+            <div class="blockX"></div>
+            <div class="blockTriangulo"></div>
+            <div class="blockCirculo"></div>
+            <div class="blockQuadrado"></div>
+        </section>
+        <section class="tubo">
+
+        </section>
+        <section class="tubo">
+
+        </section>
+        <section class="tubo">
+        </section>
+        <section id="tubo-vazio"></section>
     </main>
+
+    <footer>
+        <p>Este projeto  é apenas ilustrativo. Estas páginas foram desenvolvidas como atividade da Disciplina Programação para Web I.</p>
+    </footer>
 
     <script src="js/script.js"></script>
 </body>
