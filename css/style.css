@@ -37,6 +37,7 @@ header {
 
 #bttn {
     background-color: var(--bttn-color);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
 
     width: 200px;
     height: 65px;
@@ -56,10 +57,13 @@ header {
     background-color: var(--bttn-hover);
     color: var(--bttn-color);
     transition: 300ms;
+    transition: background-color 0.5s, transform 0.5s, box-shadow 0.5s;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 #scoreHistory {
     background-color: var(--bg-color);
+    /* box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4); */
 
     height: 100px;
     width: 300px;
@@ -78,6 +82,7 @@ main {
 
 .tubo {
     background-color: var(--bg-tubo);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
 
     display: flex;
     flex-direction: column;
@@ -91,10 +96,12 @@ main {
 
     border: 2px solid;
     border-radius: 18px;
+
 }
 
 #tubo-vazio {
     background-color: var(--bg-tubo);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
 
     display: flex;
     flex-direction: column;
@@ -121,6 +128,10 @@ footer {
     width: 100%;
 
     font-weight: bold;
+}
+
+footer span {
+    color: var(--circle-color);
 }
 
 
@@ -177,6 +188,13 @@ footer {
     border-radius: 4px;
 }
 
+/* .block:hover {
+    /* background-color: var(--bttn-hover);
+    color: var(--bttn-color);
+    transition: 300ms;
+    transition: background-color 0.5s, transform 0.5s, box-shadow 0.5s;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+} */
 
 
 
