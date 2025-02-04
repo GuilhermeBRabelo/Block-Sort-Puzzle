@@ -8,6 +8,9 @@ function criaBloco() {
     containers.forEach(function(container) {
         for (var i = 0; i < 4; i++) {
             var bloco = document.createElement("div");
+
+            bloco.addEventListener("click", alterarbox);
+            // encontrar o evento que consiga mover os blocos para outros tubos
             
             // aqui eu chamo a função random e defino via condição aritmetica qual será a classe do bloco
             var imprime = geraId();
@@ -38,6 +41,12 @@ function geraId() {
 
 //função responsável por mover os blocos
 
+function alterarbox() {
+
+    this.style.backgroundColor = "red";
+
+}
+
 //criar a função responsável por pontuar e modificar o score
 
 
@@ -46,6 +55,7 @@ function geraId() {
 function reset() {
     var containers = document.querySelectorAll(".tubo");
 
+    // responsavel por apagar os blocos de todos os tubos
     containers.forEach(function(container) {
         container.innerHTML = "";
     });
@@ -53,4 +63,6 @@ function reset() {
     criaBloco();
     // chama a função responsavel por cria os blocos
 }
+
+
 
