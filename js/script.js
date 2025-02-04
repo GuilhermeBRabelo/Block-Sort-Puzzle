@@ -30,6 +30,7 @@ function criaBloco() {
             container.appendChild(bloco);
 
             bloco = moverBlocos();
+            //chama a funcao responsavel por mover os blocos
         }
     });
 }
