@@ -43,7 +43,7 @@ function geraId() {
 
 function alterarbox() {
 
-    this.style.backgroundColor = "red";
+    this.style.backgroundColor = "yellow";
 
 }
 
