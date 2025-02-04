@@ -147,6 +147,7 @@ footer span {
 
     margin: 10px;
     border-radius: 4px;
+    cursor: pointer;
 }
 
 .blockTriangulo {
@@ -160,6 +161,7 @@ footer span {
 
     margin: 10px;
     border-radius: 4px;
+    cursor: pointer;
 }
 
 .blockQuadrado {
@@ -173,6 +175,7 @@ footer span {
 
     margin: 10px;
     border-radius: 4px;
+    cursor: pointer;
 }
 
 .blockX {
@@ -186,6 +189,7 @@ footer span {
 
     margin: 10px;
     border-radius: 4px;
+    cursor: pointer;
 }
 
 /* .block:hover {
