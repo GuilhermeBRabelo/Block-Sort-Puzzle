@@ -123,6 +123,8 @@ footer {
     font-weight: bold;
 }
 
+
+/* classe bloco */
 .blockCirculo {
     background-color: var(--circle-color);
     background-image: url('../assets/circulo.png');
