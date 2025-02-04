@@ -17,13 +17,13 @@ function criaBloco() {
             console.log(imprime);
 
             if(imprime %2 == 0) {
-                bloco.setAttribute("class", "blockCirculo");
+                bloco.setAttribute("class", "bloco circulo");
             } else if (imprime %3 == 0) {
-                bloco.setAttribute("class", "blockQuadrado");
+                bloco.setAttribute("class", "bloco quadrado");
             } else if (imprime %5 == 0) {
-                bloco.setAttribute("class", "blockTriangulo");
+                bloco.setAttribute("class", "bloco triangulo");
             } else {
-                bloco.setAttribute("class", "blockX");
+                bloco.setAttribute("class", "bloco x");
             }
 
             container.appendChild(bloco);
