@@ -1,14 +1,13 @@
-var vetorID = [];
-//função load, responsavel por carregar e criar os blocos
-
 var cores = ["circulo", "triangulo", "quadrado", "x"];
+var vetorID = [];
 
+
+//função responsavel por criar os blocos
 function criaBloco() {
-    
     var containers = document.querySelectorAll(".tubo");
-    // busca todos os elementos tubo
+    var tuboVazio = document.querySelector("#tubo-vazio");
     
-    containers.forEach((element) => console.log("ok"));
+    tuboVazio.innerHTML = "";
     
     containers.forEach(function(container) {
         for (let i = 0; i < 4; i++) {
@@ -22,18 +21,16 @@ function criaBloco() {
            
             let classe = parseInt(id / 4);
             bloco.setAttribute("class", "bloco "+cores[classe]);
-            console.log(cores[classe]);
 
             container.appendChild(bloco);
 
             bloco = moverBlocos();
-
         }
     });
 }
 
-//função responsavel por criar a aleatoriedade do ID
 
+//função responsavel por criar a aleatoriedade do ID
 function geraId() {
     let aleatorio;
 
@@ -46,11 +43,10 @@ function geraId() {
     return aleatorio;
 }
 
-//função responsável por mover os blocos
 
+//função responsável por mover os blocos
 function moverBlocos() {
     var columns = document.querySelectorAll(".tubo");
-    // var columns = document.querySelectorAll("#tubo-vazio");
     document.addEventListener("dragstart", (e) => {
         e.target.classList.add("dragging")
     });
@@ -72,7 +68,6 @@ function moverBlocos() {
         });
     });
 
-    // var columns = document.querySelectorAll(".tubo");
     var columns = document.querySelectorAll("#tubo-vazio");
     document.addEventListener("dragstart", (e) => {
         e.target.classList.add("dragging")
@@ -111,26 +106,17 @@ function getNewPosition(column,posY){
     return result;
 }
 
-//criar a função responsável por pontuar e modificar o score
+
+//Função responsável por pontuar e modificar o score
 
 
-//criar a função reset que irá apagar e criar novamente os quadrados via button
 
+//Função reset que irá apagar e criar novamente os quadrados via button
 function reset() {
     var containers = document.querySelectorAll(".tubo");
 
     containers.forEach(function(container) {
-
         container.innerHTML = "";
-
-        // for (let i = 0; i < 4; i++) {
-           
-        //     // while (container.hasChildNodes()) {
-        //     //     container.removeChild(container.firstChild);
-        //     // } 
-
-        //     container.innerHTML = "";
-        // }
     });
 
     vetorID = [];
