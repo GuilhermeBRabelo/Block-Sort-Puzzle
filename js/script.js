@@ -1,7 +1,5 @@
 //função load, responsavel por carregar e criar os blocos
-
 var vetorID = [];
-
 
 function criaBloco() {
 
@@ -38,21 +36,16 @@ function criaBloco() {
 
 //função responsavel por criar a aleatoriedade do ID
 
-function aleatorio() {
-    return Math.floor(Math.random() * 16)+1;
-}
-
 function geraId() {
-    // var vetorID = [];
-    let teste;
+    let aleatorio;
 
     do {
-        teste = aleatorio();
-    }   while (vetorID.includes(teste));
+        aleatorio = Math.floor(Math.random() * 16)+1;;
+    }   while (vetorID.includes(aleatorio));
 
-    vetorID.push(teste);
+    vetorID.push(aleatorio);
         
-    return teste;
+    return aleatorio;
 }
 
 //função responsável por mover os blocos
