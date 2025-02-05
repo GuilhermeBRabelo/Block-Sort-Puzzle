@@ -1,30 +1,28 @@
-//função load, responsavel por carregar e criar os blocos
 var vetorID = [];
+//função load, responsavel por carregar e criar os blocos
+
+var cores = ["circulo", "triangulo", "quadrado", "x"];
 
 function criaBloco() {
-
-    var bttn = document.querySelector("#bttn");
+    
     var containers = document.querySelectorAll(".tubo");
     // busca todos os elementos tubo
-
+    
+    containers.forEach((element) => console.log("ok"));
+    
     containers.forEach(function(container) {
-        for (var i = 0; i < 4; i++) {
-            containers.innerHTML = "";
+        for (let i = 0; i < 4; i++) {
             var bloco = document.createElement("div");
 
             bloco.setAttribute("draggable", "true");
             
-            var vetorParte = geraId();
-
-            if(vetorParte >= 1 && vetorParte <= 4) {
-                bloco.setAttribute("class", "bloco circulo");
-            } else if (vetorParte >= 5 && vetorParte <= 8) {
-                bloco.setAttribute("class", "bloco quadrado");
-            } else if (vetorParte >= 9 && vetorParte <= 12) {
-                bloco.setAttribute("class", "bloco triangulo");
-            } else{
-                bloco.setAttribute("class", "bloco x");
-            }
+            var id = geraId();
+            bloco.setAttribute("id", id);
+            // puxa a funcao id
+           
+            let classe = parseInt(id / 4);
+            bloco.setAttribute("class", "bloco "+cores[classe]);
+            console.log(cores[classe]);
 
             container.appendChild(bloco);
 
@@ -40,7 +38,7 @@ function geraId() {
     let aleatorio;
 
     do {
-        aleatorio = Math.floor(Math.random() * 16)+1;;
+        aleatorio = Math.floor(Math.random() * 16);
     }   while (vetorID.includes(aleatorio));
 
     vetorID.push(aleatorio);
@@ -121,11 +119,21 @@ function getNewPosition(column,posY){
 function reset() {
     var containers = document.querySelectorAll(".tubo");
 
-    // responsavel por apagar os blocos de todos os tubos
     containers.forEach(function(container) {
+
         container.innerHTML = "";
+
+        // for (let i = 0; i < 4; i++) {
+           
+        //     // while (container.hasChildNodes()) {
+        //     //     container.removeChild(container.firstChild);
+        //     // } 
+
+        //     container.innerHTML = "";
+        // }
     });
 
+    vetorID = [];
+
     criaBloco();
-    // chama a função responsavel por cria os blocos
 }
