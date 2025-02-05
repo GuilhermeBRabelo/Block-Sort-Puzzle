@@ -1,5 +1,8 @@
 //função load, responsavel por carregar e criar os blocos
 
+var vetorID = [];
+
+
 function criaBloco() {
 
     var bttn = document.querySelector("#bttn");
@@ -8,38 +11,48 @@ function criaBloco() {
 
     containers.forEach(function(container) {
         for (var i = 0; i < 4; i++) {
+            containers.innerHTML = "";
             var bloco = document.createElement("div");
 
             bloco.setAttribute("draggable", "true");
-            // encontrar o evento que consiga mover os blocos para outros tubos
             
-            // aqui eu chamo a função random e defino via condição aritmetica qual será a classe do bloco
-            var imprime = geraId();
-            console.log(imprime);
+            var vetorParte = geraId();
 
-            if(imprime %2 == 0) {
+            if(vetorParte >= 1 && vetorParte <= 4) {
                 bloco.setAttribute("class", "bloco circulo");
-            } else if (imprime %3 == 0) {
+            } else if (vetorParte >= 5 && vetorParte <= 8) {
                 bloco.setAttribute("class", "bloco quadrado");
-            } else if (imprime %5 == 0) {
+            } else if (vetorParte >= 9 && vetorParte <= 12) {
                 bloco.setAttribute("class", "bloco triangulo");
-            } else {
+            } else{
                 bloco.setAttribute("class", "bloco x");
             }
 
             container.appendChild(bloco);
 
             bloco = moverBlocos();
-            //chama a funcao responsavel por mover os blocos
+
         }
     });
 }
 
 //função responsavel por criar a aleatoriedade do ID
 
+function aleatorio() {
+    return Math.floor(Math.random() * 16)+1;
+}
+
 function geraId() {
-    var id = Math.floor(Math.random() * 18);
-    return id;
+    // var vetorID = [];
+    let teste;
+
+    do {
+        teste = aleatorio();
+    }   while (vetorID.includes(teste));
+
+    vetorID.push(teste);
+        
+    return teste;
 }
 
 //função responsável por mover os blocos
