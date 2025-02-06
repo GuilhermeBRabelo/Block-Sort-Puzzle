@@ -1,7 +1,6 @@
 var cores = ["circulo", "triangulo", "quadrado", "x"];
 var vetorID = [];
 
-
 //função responsavel por criar os blocos
 function criaBloco() {
     var containers = document.querySelectorAll(".tubo");
@@ -17,7 +16,6 @@ function criaBloco() {
             
             var id = geraId();
             bloco.setAttribute("id", id);
-            // puxa a funcao id
            
             let classe = parseInt(id / 4);
             bloco.setAttribute("class", "bloco "+cores[classe]);
@@ -28,7 +26,6 @@ function criaBloco() {
         }
     });
 }
-
 
 //função responsavel por criar a aleatoriedade do ID
 function geraId() {
@@ -43,47 +40,51 @@ function geraId() {
     return aleatorio;
 }
 
-
 //função responsável por mover os blocos
 function moverBlocos() {
-    var columns = document.querySelectorAll(".tubo");
-    document.addEventListener("dragstart", (e) => {
-        e.target.classList.add("dragging")
-    });
+    var container = document.querySelectorAll(".tubo");
 
-    document.addEventListener("dragend", (e) => {
-        e.target.classList.remove("dragging")
+    document.addEventListener("dragstart", function(e) {
+        e.target.classList.add("dragging");
     });
-
-    columns.forEach((item) => {
-        item.addEventListener("dragover", (e) => {
+    
+    document.addEventListener("dragend", function(e) {
+        e.target.classList.remove("dragging");
+        verificaBlocos();
+    });
+    
+    container.forEach(function(item) {
+        item.addEventListener("dragover", function(e) {
             const dragging = document.querySelector(".dragging");
             const applyAfter = getNewPosition(item, e.clientY);
-
-            if(applyAfter) {
-                applyAfter.insertAdjacentElement("afterend",dragging);
+    
+            if (applyAfter) {
+                applyAfter.insertAdjacentElement("afterend", dragging);
             } else {
                 item.prepend(dragging);
             }
         });
     });
 
-    var columns = document.querySelectorAll("#tubo-vazio");
-    document.addEventListener("dragstart", (e) => {
-        e.target.classList.add("dragging")
+    // repete a função para o container-vazio trabalhar
+    
+    var containerVazio = document.querySelectorAll("#tubo-vazio");
+    document.addEventListener("dragstart", function(e) {
+        e.target.classList.add("dragging");
     });
-
-    document.addEventListener("dragend", (e) => {
-        e.target.classList.remove("dragging")
+    
+    document.addEventListener("dragend", function(e) {
+        e.target.classList.remove("dragging");
+        verificaBlocos();
     });
-
-    columns.forEach((item) => {
-        item.addEventListener("dragover", (e) => {
+    
+    containerVazio.forEach(function(item) {
+        item.addEventListener("dragover", function(e) {
             const dragging = document.querySelector(".dragging");
             const applyAfter = getNewPosition(item, e.clientY);
-
-            if(applyAfter) {
-                applyAfter.insertAdjacentElement("afterend",dragging);
+    
+            if (applyAfter) {
+                applyAfter.insertAdjacentElement("afterend", dragging);
             } else {
                 item.prepend(dragging);
             }
@@ -91,6 +92,7 @@ function moverBlocos() {
     });
 }
 
+// Função para calcular a nova posição ao mover o bloco
 function getNewPosition(column,posY){
     const cards = column.querySelectorAll(".item:not(.dragging)");
     let result;
@@ -107,19 +109,105 @@ function getNewPosition(column,posY){
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+// Função para verificar se todas as colunas estão corretas
+function verificaBlocos() {
+    var tubos = document.querySelectorAll(".tubo");
+
+    // Percorre os tubos
+    for (var i = 0; i < tubos.length; i++) {
+        var blocos = tubos[i].querySelectorAll(".bloco");
+
+        // Percorre os blocos e verifica sequências de 4 blocos consecutivos
+        for (var j = 0; j < blocos.length - 3; j++) {
+            var cores = [blocos[j], blocos[j + 1], blocos[j + 2], blocos[j + 3]].map(function(bloco) {
+                return bloco.classList[1];  // Pega a cor de cada bloco
+            });
+
+            // Verifica se todos os blocos têm a mesma cor
+            if (cores.every(function(cor) { return cor === cores[0]; })) {
+                console.log("Encontrados 4 blocos da mesma cor!");
+                
+                // Chama verificarVitoria se encontrar a sequência
+                verificarVitoria();
+                return;  // Interrompe a função após encontrar a sequência
+            }
+        }
+    }
+}
+
+
+function verificarVitoria() {
+    var tubos = document.querySelectorAll(".tubo");
+
+    // Percorre os tubos (colunas)
+    for (var i = 0; i < tubos.length; i++) {
+        var blocos = tubos[i].querySelectorAll(".bloco");
+
+        // Se a coluna não tiver exatamente 4 blocos, não pode haver vitória
+        if (blocos.length !== 4) {
+            alert("Você não ganhou!");
+            return;  // Encerra a função imediatamente
+        }
+
+        var cor = blocos[0].classList[1];  // Pega a cor do primeiro bloco
+
+        // Verifica se todos os blocos da coluna têm a mesma cor
+        if (!Array.from(blocos).every(function(bloco) {
+            return bloco.classList[1] === cor;  // Verifica se todos têm a mesma cor
+        })) {
+            alert("Você não ganhou!");
+            return;  // Encerra a função imediatamente se a condição não for atendida
+        }
+    }
+
+    // Se todas as colunas forem válidas, o jogador ganhou
+    alert("Você ganhou!");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Função responsável por pontuar e modificar o score
-
-
 
 //Função reset que irá apagar e criar novamente os quadrados via button
 function reset() {
     var containers = document.querySelectorAll(".tubo");
-
+    
     containers.forEach(function(container) {
         container.innerHTML = "";
     });
-
+    
     vetorID = [];
-
+    
     criaBloco();
 }
