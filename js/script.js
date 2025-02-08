@@ -52,6 +52,7 @@ function moverBlocos() {
     document.addEventListener("dragend", function(e) {
         e.target.classList.remove("dragging");
         // verificaBlocos();
+        console.log("movendo");
         mudarPontuação();
     });
     
