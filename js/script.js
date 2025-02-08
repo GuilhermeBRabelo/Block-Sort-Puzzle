@@ -1,5 +1,6 @@
 var cores = ["circulo", "triangulo", "quadrado", "x"];
 var vetorID = [];
+var pontua = 0;
 
 //função responsavel por criar os blocos
 function criaBloco() {
@@ -50,7 +51,8 @@ function moverBlocos() {
     
     document.addEventListener("dragend", function(e) {
         e.target.classList.remove("dragging");
-        verificaBlocos();
+        // verificaBlocos();
+        mudarPontuação();
     });
     
     container.forEach(function(item) {
@@ -75,7 +77,8 @@ function moverBlocos() {
     
     document.addEventListener("dragend", function(e) {
         e.target.classList.remove("dragging");
-        verificaBlocos();
+        // verificaBlocos();
+        mudarPontuação();
     });
     
     containerVazio.forEach(function(item) {
@@ -109,95 +112,23 @@ function getNewPosition(column,posY){
 }
 
 
+// function verificaBlocos() {
+//     const tubos = document.querySelectorAll(".tubo");
 
 
-
-
-
-
-
-
-
-
-
-
-// Função para verificar se todas as colunas estão corretas
-function verificaBlocos() {
-    var tubos = document.querySelectorAll(".tubo");
-
-    // Percorre os tubos
-    for (var i = 0; i < tubos.length; i++) {
-        var blocos = tubos[i].querySelectorAll(".bloco");
-
-        // Percorre os blocos e verifica sequências de 4 blocos consecutivos
-        for (var j = 0; j < blocos.length - 3; j++) {
-            var cores = [blocos[j], blocos[j + 1], blocos[j + 2], blocos[j + 3]].map(function(bloco) {
-                return bloco.classList[1];  // Pega a cor de cada bloco
-            });
-
-            // Verifica se todos os blocos têm a mesma cor
-            if (cores.every(function(cor) { return cor === cores[0]; })) {
-                console.log("Encontrados 4 blocos da mesma cor!");
-                
-                // Chama verificarVitoria se encontrar a sequência
-                verificarVitoria();
-                return;  // Interrompe a função após encontrar a sequência
-            }
-        }
-    }
-}
-
-
-function verificarVitoria() {
-    var tubos = document.querySelectorAll(".tubo");
-
-    // Percorre os tubos (colunas)
-    for (var i = 0; i < tubos.length; i++) {
-        var blocos = tubos[i].querySelectorAll(".bloco");
-
-        // Se a coluna não tiver exatamente 4 blocos, não pode haver vitória
-        if (blocos.length !== 4) {
-            alert("Você não ganhou!");
-            return;  // Encerra a função imediatamente
-        }
-
-        var cor = blocos[0].classList[1];  // Pega a cor do primeiro bloco
-
-        // Verifica se todos os blocos da coluna têm a mesma cor
-        if (!Array.from(blocos).every(function(bloco) {
-            return bloco.classList[1] === cor;  // Verifica se todos têm a mesma cor
-        })) {
-            alert("Você não ganhou!");
-            return;  // Encerra a função imediatamente se a condição não for atendida
-        }
-    }
-
-    // Se todas as colunas forem válidas, o jogador ganhou
-    alert("Você ganhou!");
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// }
 
 
 //Função responsável por pontuar e modificar o score
+
+function mudarPontuação() {
+    var contador = document.querySelector("#contador");
+
+    pontua++;
+    
+    contador.innerHTML = pontua;
+
+}
 
 //Função reset que irá apagar e criar novamente os quadrados via button
 function reset() {
