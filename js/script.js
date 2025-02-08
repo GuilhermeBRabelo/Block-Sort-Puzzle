@@ -112,11 +112,13 @@ function getNewPosition(column,posY){
 }
 
 
-// function verificaBlocos() {
-//     const tubos = document.querySelectorAll(".tubo");
+
+//Função responsável por verificar se cada tubo contem 4 blocos
+function verificaBlocos() {
+    const tubos = document.querySelectorAll(".tubo");
 
 
-// }
+}
 
 
 //Função responsável por pontuar e modificar o score
