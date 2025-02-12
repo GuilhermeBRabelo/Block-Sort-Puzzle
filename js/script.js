@@ -71,7 +71,6 @@ function moverBlocos() {
 // Função para calcular a nova posição ao mover o bloco
 function getNewPosition(column, posY) {
     const cards = column.querySelectorAll(".item:not(.dragging)");
-    const applyAfter = getNewPosition(item, e.clientY);
     let result;
 
     for (let refer_card of cards) {
