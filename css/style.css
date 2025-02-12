@@ -22,10 +22,10 @@ header {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    
+
     height: 200px;
     width: 100%;
-    
+
     background-color: var(--bg-section);
 }
 
@@ -92,7 +92,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+
     margin: 50px;
 
     width: 160px;
@@ -139,7 +139,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     background-color: var(--bg-section);
 
     height: 200px;
