@@ -121,7 +121,7 @@ function verificarPontuacao() {
     }
 }
 
-
+//Função responsável verificação pela quantidade de blocos e cores
 function verificarVitoria() {
     const containers = document.querySelectorAll(".tubo");
 
