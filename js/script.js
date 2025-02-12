@@ -4,9 +4,9 @@ var pontua = 0;
 
 //função responsavel por criar os blocos
 function criaBloco() {
-    var containers = document.querySelectorAll(".tubo");
-    var tuboVazio = document.querySelector("#tubo-vazio");
-    
+    var tuboVazio = document.querySelectorAll(".tubo");
+    var containers = document.querySelectorAll(".create");
+
     tuboVazio.innerHTML = "";
     
     containers.forEach(function(container) {
@@ -23,9 +23,10 @@ function criaBloco() {
 
             container.appendChild(bloco);
 
-            bloco = moverBlocos();
         }
     });
+
+    moverBlocos();
 }
 
 //função responsavel por criar a aleatoriedade do ID
@@ -51,38 +52,10 @@ function moverBlocos() {
     
     document.addEventListener("dragend", function(e) {
         e.target.classList.remove("dragging");
-        // verificaBlocos();
-        console.log("movendo");
-        mudarPontuação();
+        mudarPontua();
     });
     
     container.forEach(function(item) {
-        item.addEventListener("dragover", function(e) {
-            const dragging = document.querySelector(".dragging");
-            const applyAfter = getNewPosition(item, e.clientY);
-    
-            if (applyAfter) {
-                applyAfter.insertAdjacentElement("afterend", dragging);
-            } else {
-                item.prepend(dragging);
-            }
-        });
-    });
-
-    // repete a função para o container-vazio trabalhar
-    
-    var containerVazio = document.querySelectorAll("#tubo-vazio");
-    document.addEventListener("dragstart", function(e) {
-        e.target.classList.add("dragging");
-    });
-    
-    document.addEventListener("dragend", function(e) {
-        e.target.classList.remove("dragging");
-        // verificaBlocos();
-        mudarPontuação();
-    });
-    
-    containerVazio.forEach(function(item) {
         item.addEventListener("dragover", function(e) {
             const dragging = document.querySelector(".dragging");
             const applyAfter = getNewPosition(item, e.clientY);
@@ -113,25 +86,14 @@ function getNewPosition(column,posY){
 }
 
 
-
-//Função responsável por verificar se cada tubo contem 4 blocos
-function verificaBlocos() {
-    const tubos = document.querySelectorAll(".tubo");
-
-
-}
-
-
 //Função responsável por pontuar e modificar o score
-
-function mudarPontuação() {
+function mudarPontua() {
     var contador = document.querySelector("#contador");
-
-    pontua++;
     
+    pontua += 10;
     contador.innerHTML = pontua;
-
 }
+
 
 //Função reset que irá apagar e criar novamente os quadrados via button
 function reset() {
@@ -142,6 +104,6 @@ function reset() {
     });
     
     vetorID = [];
-    
+     
     criaBloco();
 }

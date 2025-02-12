@@ -69,7 +69,6 @@ header span {
 
 #scoreHistory {
     background-color: var(--bg-color);
-    /* box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4); */
 
     height: 100px;
     width: 300px;
@@ -83,7 +82,6 @@ main {
     align-items: center;
 
     width: 100%;
-    /* height: 60vh; */
 }
 
 .tubo {
@@ -105,43 +103,6 @@ main {
 
 }
 
-#tubo-vazio {
-    background-color: var(--bg-tubo);
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-    margin: 50px;
-
-    width: 160px;
-    height: 534px;
-
-    border: 2px solid;
-    border-radius: 18px;
-}
-
-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    background-color: var(--bg-section);
-
-    height: 200px;
-    width: 100%;
-
-    font-weight: bold;
-}
-
-footer span {
-    color: var(--circle-color);
-}
-
-
-/* classe bloco */
 .bloco {
     background-repeat: no-repeat;
     background-position: center;
@@ -173,4 +134,20 @@ footer span {
     background-color: var(--x-color);
     background-image: url('../assets/x.png');
 }
-/* fim da classe bloco */
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: var(--bg-section);
+
+    height: 200px;
+    width: 100%;
+
+    font-weight: bold;
+}
+
+footer span {
+    color: var(--circle-color);
+}
