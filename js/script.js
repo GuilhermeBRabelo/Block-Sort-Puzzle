@@ -13,7 +13,7 @@ document.addEventListener("dragend", function (e) {
 });
 
 
-//função responsavel por criar os blocos
+//Função responsavel por criar os blocos
 function criaBloco() {
     var tuboVazio = document.querySelectorAll(".tubo");
     var containers = document.querySelectorAll(".create");
@@ -40,7 +40,7 @@ function criaBloco() {
 }
 
 
-//função responsavel por criar a aleatoriedade do ID
+//Função responsavel por criar a aleatoriedade do ID
 function geraId() {
     let aleatorio;
 
@@ -54,7 +54,7 @@ function geraId() {
 }
 
 
-//função responsável por mover os blocos
+//Função responsável por mover os blocos
 function moverBlocos() {
     var containers = document.querySelectorAll(".tubo");
 
@@ -82,7 +82,7 @@ function moverBlocos() {
 }
 
 
-// Função para calcular a nova posição ao mover o bloco
+//Função para calcular a nova posição ao mover o bloco
 function getNewPosition(column, posY) {
     const cards = column.querySelectorAll(".bloco:not(.dragging)");
     let result;
@@ -99,6 +99,7 @@ function getNewPosition(column, posY) {
 }
 
 
+//Função responsável verificação pela quantidade de blocos e cores
 function verificarPontuacao() {
     const containers = document.querySelectorAll(".tubo");
     let completou = false;
@@ -121,7 +122,8 @@ function verificarPontuacao() {
     }
 }
 
-//Função responsável verificação pela quantidade de blocos e cores
+
+//Funcao responsável por estilizar a vitoria do jogador
 function verificarVitoria() {
     const containers = document.querySelectorAll(".tubo");
 
