@@ -1,8 +1,19 @@
 var cores = ["circulo", "triangulo", "quadrado", "x"];
 var vetorID = [];
-var pontua = 0;
+var pontuacao = 0;
 
-//função responsavel por criar os blocos
+document.addEventListener("dragstart", function (e) {
+    e.target.classList.add("dragging");
+});
+
+document.addEventListener("dragend", function (e) {
+    e.target.classList.remove("dragging");
+    contador();
+    verificarPontuacao();
+});
+
+
+//Função responsavel por criar os blocos
 function criaBloco() {
     var tuboVazio = document.querySelectorAll(".tubo");
     var containers = document.querySelectorAll(".create");
@@ -28,7 +39,8 @@ function criaBloco() {
     moverBlocos();
 }
 
-//função responsavel por criar a aleatoriedade do ID
+
+//Função responsavel por criar a aleatoriedade do ID
 function geraId() {
     let aleatorio;
 
@@ -41,56 +53,101 @@ function geraId() {
     return aleatorio;
 }
 
-//função responsável por mover os blocos
+
+//Função responsável por mover os blocos
 function moverBlocos() {
-    var container = document.querySelectorAll(".tubo");
+    var containers = document.querySelectorAll(".tubo");
 
-    document.addEventListener("dragstart", function (e) {
-        e.target.classList.add("dragging");
+    // Remove listeners antigos de dragover
+    containers.forEach(function (container) {
+        container.removeEventListener("dragover", handleDragover);
     });
 
-    document.addEventListener("dragend", function (e) {
-        e.target.classList.remove("dragging");
-        mudarPontua();
+    // Adiciona novos listeners de dragover
+    containers.forEach(function (container) {
+        container.addEventListener("dragover", handleDragover);
     });
 
-    container.forEach(function (item) {
-        item.addEventListener("dragover", function (e) {
-            const dragging = document.querySelector(".dragging");
-            const applyAfter = getNewPosition(item, e.clientY);
+    function handleDragover(e) {
+        e.preventDefault();
+        const dragging = document.querySelector(".dragging");
+        const applyAfter = getNewPosition(this, e.clientY);
 
-            if (applyAfter) {
-                applyAfter.insertAdjacentElement("afterend", dragging);
-            } else {
-                item.prepend(dragging);
-            }
-        });
-    });
+        if (applyAfter) {
+            applyAfter.insertAdjacentElement("afterend", dragging);
+        } else {
+            this.prepend(dragging);
+        }
+    }
 }
 
-// Função para calcular a nova posição ao mover o bloco
-function getNewPosition(column, posY) {
-    const cards = column.querySelectorAll(".item:not(.dragging)");
-    let result;
 
+//Função para calcular a nova posição ao mover o bloco
+function getNewPosition(column, posY) {
+    const cards = column.querySelectorAll(".bloco:not(.dragging)");
+    
     for (let refer_card of cards) {
         const box = refer_card.getBoundingClientRect();
-        const boxCenterY = box.y + box.height / 2;
-
-        if (posY >= boxCenterY)
-            result = refer_card;
     }
 
-    return result;
+}
+
+
+//Função responsável verificação pela quantidade de blocos e cores
+function verificarPontuacao() {
+    const containers = document.querySelectorAll(".tubo");
+    let completou = false;
+
+    containers.forEach(function (container) {
+        const blocos = container.querySelectorAll(".bloco");
+
+        if (blocos.length === 4) { // Verifica se há exatamente 4 blocos no tubo
+            const classes = Array.from(blocos).map(bloco => bloco.classList[1]);
+
+            // Verifica se todos os blocos são da mesma cor
+            if (new Set(classes).size === 1) {
+                completou = true;
+            }
+        }
+    });
+
+    if (completou) {
+        verificarVitoria();
+    }
+}
+
+
+//Funcao responsável por estilizar a vitoria do jogador
+function verificarVitoria() {
+    const containers = document.querySelectorAll(".tubo");
+
+    const coresCompletas = new Set();
+
+    containers.forEach(container => {
+        const blocos = container.querySelectorAll(".bloco");
+        if (blocos.length === 4) { // Verifica se o tubo tem 4 blocos
+            const classes = Array.from(blocos).map(bloco => bloco.classList[1]);
+            // Verifica se todos os blocos do tubo são da mesma cor
+
+            if (new Set(classes).size === 1) {
+                coresCompletas.add(classes[0]); // Adiciona a cor ao conjunto
+            }
+        }
+    });
+
+    if (coresCompletas.size === 4) {
+        alert("GANHOU PAPAI");
+
+    }
 }
 
 
 //Função responsável por pontuar e modificar o score
-function mudarPontua() {
+function contador() {
     var contador = document.querySelector("#contador");
 
-    pontua += 10;
-    contador.innerHTML = pontua;
+    pontuacao += 10;
+    contador.innerHTML = pontuacao;
 }
 
 
@@ -104,5 +161,9 @@ function reset() {
 
     vetorID = [];
 
+    pontuacao = 0;
+    document.querySelector("#contador").innerHTML = pontuacao;
+
     criaBloco();
 }
+
