@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styleVitoria.css">
+    <link rel="shortcut icon" href="assets/trevo.png" type="image/x-icon">
+    <title>Block Puzzle</title>
+</head>
+
+<body>
+
+    <header>
+        <button type="button" id="bttnHeader" onclick="reset()">RESET</button>
+
+        <span> SCORE: <span id="contador">0</span> </span>
+
+        <div id="scoreHistory"></div>
+    </header>
+
+    <main id="containerMain">
+        <div id="container">
+            
+            <div id="containerDados">
+                <div class="dados">
+                    <span>1</span>
+                    <h2>Sequência de jogos</h2>
+                </div>
+
+                <div class="dados">
+                    <span>3</span>
+                    <h2>Menor Pontuação</h2>
+                </div>
+
+                <div class="dados">
+                    <span>0</span>
+                    <h2>Sequência de Vitórias</h2>
+                </div>
+            </div>
+
+            <div id="containerScore">
+                <h2>SCORE</h2>
+
+                <div class="score-model">
+                    <h3 id="colocacao">1</h3>
+
+                    <span id="pontuacao">130</span>
+                </div>
+
+                <div class="score-model">
+                    <h3 id="colocacao">2</h3>
+
+                    <span id="pontuacao">170</span>
+                </div>
+
+                <div class="score-model">
+                    <h3 id="colocacao">3</h3>
+
+                    <span id="pontuacao">230</span>
+                </div>
+            </div>
+
+            <button type="button" id="bttn" onclick="resetPage()">RECOMEÇAR</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>Este projeto é apenas <span>ilustrativo.</span> Estas páginas foram desenvolvidas como atividade da Disciplina Programação para Web I.</p>
+    </footer>
+
+    <script src="js/script.js" defer></script>
+</body>
+
+</html>

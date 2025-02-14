@@ -8,7 +8,7 @@ document.addEventListener("dragstart", function (e) {
 
 document.addEventListener("dragend", function (e) {
     e.target.classList.remove("dragging");
-    atualizarPontuacao();
+    contador();
     verificarPontuacao();
 });
 
@@ -85,17 +85,11 @@ function moverBlocos() {
 //Função para calcular a nova posição ao mover o bloco
 function getNewPosition(column, posY) {
     const cards = column.querySelectorAll(".bloco:not(.dragging)");
-    let result;
-
+    
     for (let refer_card of cards) {
         const box = refer_card.getBoundingClientRect();
-        const boxCenterY = box.y + box.height / 2;
-
-        if (posY >= boxCenterY)
-            result = refer_card;
     }
 
-    return result;
 }
 
 
@@ -142,13 +136,13 @@ function verificarVitoria() {
     });
 
     if (coresCompletas.size === 4) {
-        alert("GANHOU PAPAI");
+        window.location.href = 'indexVitoria.html';
     }
 }
 
 
 //Função responsável por pontuar e modificar o score
-function atualizarPontuacao() {
+function contador() {
     var contador = document.querySelector("#contador");
 
     pontuacao += 10;
@@ -170,4 +164,9 @@ function reset() {
     document.querySelector("#contador").innerHTML = pontuacao;
 
     criaBloco();
+}
+
+function resetPage() {
+    window.location.href = 'index.html';
+    // Verifica qual é o estilo atual e troca para o outro
 }
