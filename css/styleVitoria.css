@@ -37,7 +37,7 @@ header span {
 }
 
 #bttnHeader {
-    background-color: var(--bttn-color);
+    background-color: var(--bttn-hover);
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
 
     width: 200px;
@@ -45,10 +45,12 @@ header span {
     border: none;
     border-radius: 18px;
 
-    color: var(--bttn-hover);
+    color: var(--bttn-color);
     font-size: 1rem;
     font-family: 'Press Start 2P';
     font-weight: bold;
+
+    cursor: not-allowed ;
 }
 
 #contador {
@@ -168,19 +170,20 @@ main {
     border: none;
     border-radius: 18px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
-    font-family: 'Poppins';
+    font-family: 'Press Start 2P';
     font-size: 20px;
-    font-weight: bold;
+    font-weight: lighter;
 
     cursor: pointer;
 }
 
 #bttn:hover {
     background-color: var(--bttn-hover);
-    color: var(--bttn-color);
-    transition: 300ms;
-    transition: background-color 0.5s, transform 0.5s, box-shadow 0.5s;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    color: var(--bttn-color);
+    
+    transition: 600ms;
+    transition: background-color 0.5s, transform 0.5s, box-shadow 0.5s;
 }
 
 /* PARTE BTTN */

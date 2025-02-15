@@ -80,27 +80,33 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-
+    
     width: 100%;
 }
 
 .tubo {
     background-color: var(--bg-tubo);
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
-
+    transition: background-color 0.3s;
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    
     margin: 50px;
-
+    
     width: 160px;
     height: 534px;
-
+    
     border: 2px solid;
     border-radius: 18px;
+    
+}
 
+
+.tubo.over {
+    background-color: #f0f0f0;
 }
 
 .bloco {
@@ -113,6 +119,11 @@ main {
     margin: 10px;
     border-radius: 4px;
     cursor: pointer;
+}
+
+.dragging {
+    opacity: 0.5;
+    transform: scale(1.05);
 }
 
 .circulo {
@@ -151,3 +162,5 @@ footer {
 footer span {
     color: var(--circle-color);
 }
+
+

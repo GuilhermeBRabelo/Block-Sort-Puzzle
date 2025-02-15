@@ -166,7 +166,8 @@ function reset() {
     criaBloco();
 }
 
+
+//Retorna para a primeira tela
 function resetPage() {
     window.location.href = 'index.html';
-    // Verifica qual é o estilo atual e troca para o outro
 }
