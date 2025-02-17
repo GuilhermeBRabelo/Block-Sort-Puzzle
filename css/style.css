@@ -163,9 +163,11 @@ footer span {
     color: var(--circle-color);
 }
 
-@media screen and (min-width: 360px) and (max-width: 800px) {
+/* ORIENTAÇÃO CELULARES */
+@media screen and (min-width: 300px) and (max-width: 800px) {
     header {
         display: flex;
+        flex-wrap: wrap;
 
         height: 100px;
         width: 100%;
@@ -240,6 +242,86 @@ footer span {
     }
 }
 
+/* ORIENTAÇÃO CELULAR LANDSCAPE */
+@media screen and (min-width: 300px)  {
+    header {
+        display: flex;
+        flex-wrap: wrap;
+
+        height: 100px;
+        width: 100%;
+    }
+
+    #bttn {
+        width: 100px;
+        height: 32,5px;
+    
+        font-size: 0.8rem;
+    }
+
+    header span{
+        font-size: 20px;
+    }
+
+    header #scoreHistory{
+        display: none;
+    }
+
+    main {
+        display: flex;
+        flex-wrap: wrap;
+
+        width: 100%;
+    }
+
+    .tubo {
+        margin: 25px;
+        
+        width: 80px;
+        height: 267px;
+        
+        border: 2px solid;
+        border-radius: 18px;
+    }
+
+    .bloco {
+        background-repeat: no-repeat;
+        background-position: center;
+    
+        width: 50px;
+        height: 50px;
+    }
+
+    .circulo {
+        background-color: var(--circle-color);
+        background-image: url('../assets/circulo.png');
+        background-size: 50%;
+    }
+    
+    .triangulo {
+        background-color: var(--triangle-color);
+        background-image: url('../assets/triangulo.png');
+        background-size: 50%;
+    }
+    
+    .quadrado {
+        background-color: var(--quadrate-color);
+        background-image: url('../assets/quadrado.png');
+        background-size: 50%;
+    }
+    
+    .x {
+        background-color: var(--x-color);
+        background-image: url('../assets/x.png');
+        background-size: 50%;
+    }
+
+    footer {
+        display: none;
+    }
+}
+
+/* ORIENTAÇÃO TABLET */
 @media screen and (max-width: 1300px) {
     header {
         display: flex;
