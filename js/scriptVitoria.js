@@ -11,10 +11,10 @@ function placar() {
 }
 
 function comparar() {
-    var a = parseInt(localStorage.getItem("pontos1") || "");
-    var b = parseInt(localStorage.getItem("pontos2") || "");
-    var c = parseInt(localStorage.getItem("pontos3") || "");
-    var p = parseInt(localStorage.getItem("pontos") || "");
+    var a = (localStorage.getItem("pontos1") || 0);
+    var b = (localStorage.getItem("pontos2") || 0);
+    var c = (localStorage.getItem("pontos3") || 0);
+    var p = (localStorage.getItem("pontos") || 0);
 
     var Aux;
 
