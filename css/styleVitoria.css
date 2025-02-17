@@ -204,3 +204,79 @@ footer {
 footer span {
     color: var(--circle-color);
 }
+
+@media screen and (min-width: 360px) and (max-width: 800px) {
+    header {
+        display: flex;
+
+        height: 100px;
+        width: 100%;
+    }
+
+    #bttnHeader {
+        width: 100px;
+        height: 32,5px;
+    
+        font-size: 0.8rem;
+    }
+
+    header #scoreHistory{
+        display: none;
+    }
+
+    header span{
+        font-size: 20px;
+    }
+
+    main {
+        margin-top: 40px;
+    }
+    
+    #container {
+        height: 376px;
+        width: 324px;
+        margin: 50px;
+    }
+
+    footer {
+        position: absolute;
+        bottom: 0;
+
+        height: 150px;
+        text-align: center;
+    }
+}
+
+@media screen and (max-height: 760px){
+    
+    #container {
+        height: 235px;
+        width: 203px;
+        margin: 50px;
+    }
+
+    #bttnHeader {
+        width: 100px;
+        height: 38px;
+    
+        font-size: 0.8rem;
+    
+        cursor: not-allowed ;
+    }
+
+    #bttn {
+        width: 80%;
+        height: 80%;
+        font-size: 0.6rem;
+    }
+
+    .dados {
+        font-size: 0.8rem;
+    }
+
+    footer {
+        font-size: 0.8rem;
+        padding: 10px;
+    }
+
+}
