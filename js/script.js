@@ -136,6 +136,8 @@ function verificarVitoria() {
     });
 
     if (coresCompletas.size === 4) {
+        localStorage.setItem("pontos", pontuacao);
+       
         window.location.href = 'indexVitoria.html';
     }
 }
