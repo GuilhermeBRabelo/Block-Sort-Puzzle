@@ -17,22 +17,20 @@ function comparar() {
     var p = parseInt(localStorage.getItem("pontos")) || 0;
     var aux;
 
-    if (p > c) {
-        aux = c;
-        c = p;
-        p = aux;
+    if (p > a) {
+        a = p;
     }
 
-    if (c > b) {
-        aux = b;
-        c = b;
+    if (a > b) {
+        aux = a;
+        a = b;
         b = aux;
     }
 
-    if (b > a) {
-        aux = a;
-        b = a;
-        a = aux;
+    if (b > c) {
+        aux = b;
+        b = c;
+        c = aux;
     }
     
 
