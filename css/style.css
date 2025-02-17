@@ -243,7 +243,7 @@ footer span {
 }
 
 /* ORIENTAÇÃO CELULAR LANDSCAPE */
-@media screen and (min-width: 300px)  {
+@media screen and (max-height: 375px) and (orientation: landscape) {
     header {
         display: flex;
         flex-wrap: wrap;
