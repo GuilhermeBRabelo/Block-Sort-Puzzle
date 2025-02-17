@@ -2,6 +2,8 @@ var cores = ["circulo", "triangulo", "quadrado", "x"];
 var vetorID = [];
 var pontuacao = 0;
 
+var gay = document.getElementById("gay");
+
 document.addEventListener("dragstart", function (e) {
     e.target.classList.add("dragging");
 });
@@ -51,7 +53,7 @@ function geraId() {
     vetorID.push(aleatorio);
 
     return aleatorio;
-}
+} 
 
 
 //Função responsável por mover os blocos
@@ -136,8 +138,9 @@ function verificarVitoria() {
     });
 
     if (coresCompletas.size === 4) {
-        alert("GANHOU PAPAI");
-
+        localStorage.setItem("pontos", pontuacao);
+        
+        window.location.href = 'indexVitoria.html';
     }
 }
 
@@ -167,3 +170,8 @@ function reset() {
     criaBloco();
 }
 
+
+//Retorna para a primeira tela
+function resetPage() {
+    window.location.href = 'index.html';
+}
